@@ -1,0 +1,48 @@
+<div id="job-view-container" class="container">
+    <div class="row text-center">
+        <a class="back-link main-color" href="/">Voltar</a>
+        <div id="img-container" class="col-md-12">
+            <img src="/assets/img/predio.png" alt="company" id="photo">
+            <input type="file" id="file">
+            <label for="file" id="uploadBtn">Choose a Picture</label>
+        </div>
+        <div class="col-md-12">
+            <h1 class="main-color">{{Job.dataValues.title}}</h1>
+            <p class="bold">Quem eles estao buscando: </p>
+            <p class="job-desc">{{Job.dataValues.description}}</p>
+            <p><span class="bold">O salário informado é de: </span>R${{Job.dataValues.salary}}</p>
+            <p>
+                Para trabalhar na <span class="bold main-color">{{Job.dataValues.company}}</span> envie um e-mail para a
+                <a class="main-color" href="mail:to{{Job.dataValues.email}}">{{Job.dataValues.email}}</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const imgDiv = document.querySelector('#img-container')
+    const img = document.querySelector('#photo')
+    const file = document.querySelector('#file')
+    const uploadBtn = document.querySelector('#uploadBtn')
+
+    console.log(imgDiv)
+    console.log(img)
+    console.log(file)
+    console.log(uploadBtn)
+
+    file.addEventListener('change', () => {
+        const choosedFile = file.files[0]
+
+        if (choosedFile) {
+            const reader = new FileReader()
+
+            reader.addEventListener('load', () => {
+                img.setAttribute('src', reader.result)
+            })
+
+            reader.readAsDataURL(choosedFile)
+        }
+        console.log(choosedFile)
+    })
+
+</script>

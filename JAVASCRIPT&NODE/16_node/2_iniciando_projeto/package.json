@@ -1,0 +1,10 @@
+{
+  "name": "2_iniciando_projeto",
+  "version": "1.0.0",
+  "description": "criando projeto npm",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
